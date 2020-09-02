@@ -1,1 +1,1 @@
-Initial Commit
+StreamChamp - Highlighting today's best Twitch streamers.
