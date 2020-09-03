@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import Header from './Header';
+import FrontPage from './FrontPage'
+import ViewPage from './ViewPage'
+import BrowsePage from './ViewPage'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+
+    }
+  }
+
+render() {
+  return(
+    <React.Fragment>
+      <Header/>
       
-    </div>
-  );
+    </React.Fragment>
+  )
+}
+
 }
 
 export default App;
