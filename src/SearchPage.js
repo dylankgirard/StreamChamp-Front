@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
-
-class BrowsePage extends Component {
+class SearchPage extends Component {
 	render() {
 		return (
 			<Container>
-				<p>Welcome to the Browse Page!</p>
+				<p>Welcome to the Search Page!</p>
 			</Container>
 		);
 	}
 }
 
-export default BrowsePage;
+export default SearchPage;
