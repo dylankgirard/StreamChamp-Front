@@ -5,6 +5,7 @@ import FrontCarousel from './FrontCarousel'
 
 class FrontPage extends Component {
     render() {
+        
         return(
             <Container>
                 <p>Welcome to the Front Page!</p>

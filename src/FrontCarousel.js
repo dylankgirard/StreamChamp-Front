@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
-import { Carousel, Container } from 'react-bootstrap';
+import Carousel from 'react-bootstrap/Carousel';
 import { TwitchEmbed } from 'react-twitch-embed';
 
 class FrontCarousel extends Component {
@@ -17,19 +17,17 @@ class FrontCarousel extends Component {
 							muted
 							withChat={false}
 							autoplay={false}
-							onVideoPause={() => console.log(':(')}
 						/>
 					</Carousel.Item>
 					<Carousel.Item>
 						<TwitchEmbed
 							channel='elajjaz'
 							id='elajjaz'
-							theme='dark'							
+							theme='dark'		
 							width='100%'
 							muted
 							withChat={false}
 							autoplay={false}
-							onVideoPause={() => console.log(':(')}
 						/>
 					</Carousel.Item>
 					<Carousel.Item>
@@ -41,7 +39,6 @@ class FrontCarousel extends Component {
 							muted
 							withChat={false}
 							autoplay={false}
-							onVideoPause={() => console.log(':(')}
 						/>
 					</Carousel.Item>
 				</Carousel>
