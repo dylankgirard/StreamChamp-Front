@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Header from './Header';
 import FrontPage from './FrontPage'
-import ViewPage from './ViewPage'
+// import ViewPage from './ViewPage'
 import BrowsePage from './BrowsePage'
 import SearchPage from './SearchPage'
 import 'bootstrap/dist/css/bootstrap.min.css';
