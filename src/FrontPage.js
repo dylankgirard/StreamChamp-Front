@@ -1,15 +1,18 @@
-import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-import { Container } from 'react-bootstrap'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Container, Nav } from 'react-bootstrap'
 import FrontCarousel from './FrontCarousel'
 
 function FrontPage(props) {
-        return(
-            <Container>
-                <p>Welcome to the Front Page!</p>
-                <FrontCarousel topStreams={props.topStreams}/>
-            </Container>
-        )
+        return (
+					<Container>
+						<h2>Welcome to StreamChamp</h2>
+						<FrontCarousel topStreams={props.topStreams} />
+						<Link to='/browse'>
+							<h3>Browse Top Streams</h3>
+						</Link>
+					</Container>
+				);
     }
 
 export default FrontPage;

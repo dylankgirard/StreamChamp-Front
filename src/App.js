@@ -19,7 +19,7 @@ class App extends Component {
 
 	componentDidMount() {
 		axios
-			.get('https://api.twitch.tv/helix/streams?first=10', {
+			.get('https://api.twitch.tv/helix/streams?first=5', {
 				headers: {
 					'Client-Id': process.env.REACT_APP_TWITCH_API_CLIENT_ID,
 					Authorization: `Bearer ${process.env.REACT_APP_TWITCH_API_APP_TOKEN}`,
@@ -47,7 +47,7 @@ class App extends Component {
 				<Route
 					path='/browse'
 					render={() => {
-						return <BrowsePage />;
+						return <BrowsePage topStreams={this.state.topStreams} />;
 					}}
 				/>
 				<Route
