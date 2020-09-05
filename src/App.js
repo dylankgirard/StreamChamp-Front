@@ -38,7 +38,7 @@ class App extends Component {
 				<Header />
 				<Route
 					exact
-					path='/home'
+					path='/'
 					render={() => {
 						
 						return <FrontPage topStreams={this.state.topStreams} />;
