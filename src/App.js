@@ -17,12 +17,12 @@ class App extends Component {
 		};
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		axios
 			.get('https://api.twitch.tv/helix/streams?first=10', {
 				headers: {
 					'Client-Id': process.env.REACT_APP_TWITCH_API_CLIENT_ID,
-					'Authorization': `Bearer ${process.env.REACT_APP_TWITCH_API_APP_TOKEN}`,
+					Authorization: `Bearer ${process.env.REACT_APP_TWITCH_API_APP_TOKEN}`,
 				},
 			})
 			.then((res) => {
@@ -33,11 +33,17 @@ class App extends Component {
 	}
 
 	render() {
-		console.log(this.state.topStreams);
 		return (
 			<React.Fragment>
 				<Header />
-				<Route exact path='/home' component={FrontPage} />
+				<Route
+					exact
+					path='/home'
+					render={() => {
+						
+						return <FrontPage topStreams={this.state.topStreams} />;
+					}}
+				/>
 				<Route
 					path='/browse'
 					render={() => {

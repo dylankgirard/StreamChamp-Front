@@ -3,16 +3,14 @@ import React, { Component } from 'react';
 import { Container } from 'react-bootstrap'
 import FrontCarousel from './FrontCarousel'
 
-class FrontPage extends Component {
-    render() {
-        
+function FrontPage(props) {
+    console.log(props.topStreams);
         return(
             <Container>
                 <p>Welcome to the Front Page!</p>
-                <FrontCarousel/>
+                <FrontCarousel topStreams={props.topStreams}/>
             </Container>
         )
     }
-}
 
 export default FrontPage;
