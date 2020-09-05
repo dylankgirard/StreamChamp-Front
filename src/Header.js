@@ -7,8 +7,8 @@ class Header extends Component {
 	render() {
 		return (
 			<Navbar className='header' variant='dark' expand='lg'>
-				<Navbar.Brand id='brand' as={Link} to='/'>
-					StreamChamp
+				<Navbar.Brand id='main-brand' as={Link} to='/'>
+					Stream-Champ
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='basic-navbar-nav' />
 				<Navbar.Collapse id='basic-navbar-nav'>
