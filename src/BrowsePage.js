@@ -1,8 +1,18 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
-import { Container, Card, CardGroup, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { Container, Card, Button, ButtonGroup } from 'react-bootstrap';
 
 function BrowsePage(props) {
+	// const linkClick = (e) => {
+	// 	e.preventDefault();
+	// 	window.location.href = '/view';
+	// }
+
+	// function parentUserName(e){
+	// 	let name = e.currentTarget.parentElement.getAttribute('user_name');
+	// 	console.log(name);
+	// }
+
 	const topStreams = props.topStreams;
 	if (topStreams.length === 0) {
 		return null;
@@ -14,7 +24,10 @@ function BrowsePage(props) {
 			<Container>
 				{topStreams.data.map((stream) => {
 					return (
-						<Card border='dark' className='mb-3' key={stream.id}>
+						<Card
+							border='secondary'
+							className='mb-4'
+							key={stream.id}>
 							<Card.Img
 								variant='top'
 								src={stream.thumbnail_url.replace('-{width}x{height}', '')}
@@ -24,7 +37,23 @@ function BrowsePage(props) {
 								<Card.Text>{stream.title}}</Card.Text>
 								<Card.Text>Viewer Count: {stream.viewer_count}</Card.Text>
 							</Card.Body>
-							<Button>Watch</Button>
+							{/* <style type='text/css'>
+								{`.btn-flat 
+								{background-color: #6441A4;
+								color: white;}`}
+							</style> */}
+							<ButtonGroup>
+								<Link to='/view'>
+									<Button
+										onClick={() => {props.setStreamName(
+											 stream.user_name
+										)}}
+										variant='outline-primary'>
+										Watch
+									</Button>
+								</Link>
+								<Button variant='outline-warning'>Follow</Button>
+							</ButtonGroup>
 						</Card>
 					);
 				})}

@@ -1,6 +1,24 @@
-import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import React from 'react';
+import Container from 'react-bootstrap/Container'
+import { TwitchEmbed } from 'react-twitch-embed';
 
-class ViewPage extends Component {}
+
+function ViewPage(props) {
+    // console.log(props.streamName);
+    return (
+			<Container>
+				<h1>Now Viewing: {props.streamName}</h1>
+				<TwitchEmbed
+					id={props.streamName}
+					channel={`${props.streamName}`}
+					autoplay={false}
+					theme='dark'
+					width='100%'
+					muted
+					withChat={false}
+				/>
+			</Container>
+		);
+}
 
 export default ViewPage;

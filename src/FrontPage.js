@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Nav } from 'react-bootstrap'
+import { Container, Button } from 'react-bootstrap'
 import FrontCarousel from './FrontCarousel'
 
 function FrontPage(props) {
@@ -9,7 +9,7 @@ function FrontPage(props) {
 						<h2>Welcome to StreamChamp</h2>
 						<FrontCarousel topStreams={props.topStreams} />
 						<Link to='/browse'>
-							<h3>Browse Top Streams</h3>
+							<Button className='mt-3'>Browse Top Streams</Button>
 						</Link>
 					</Container>
 				);

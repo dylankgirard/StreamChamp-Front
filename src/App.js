@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Header from './Header';
 import FrontPage from './FrontPage';
-// import ViewPage from './ViewPage'
+import ViewPage from './ViewPage'
 import BrowsePage from './BrowsePage';
 import SearchPage from './SearchPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,12 +14,13 @@ class App extends Component {
 		super();
 		this.state = {
 			topStreams: [],
+			streamName: 'lirik'
 		};
 	}
 
 	componentDidMount() {
 		axios
-			.get('https://api.twitch.tv/helix/streams?first=5', {
+			.get('https://api.twitch.tv/helix/streams?first=20', {
 				headers: {
 					'Client-Id': process.env.REACT_APP_TWITCH_API_CLIENT_ID,
 					Authorization: `Bearer ${process.env.REACT_APP_TWITCH_API_APP_TOKEN}`,
@@ -31,6 +32,10 @@ class App extends Component {
 				});
 				console.log(res.data);
 			});
+	}
+
+	setStreamName = (streamName) => {
+		this.setState({ streamName: streamName})
 	}
 
 	render() {
@@ -47,7 +52,12 @@ class App extends Component {
 				<Route
 					path='/browse'
 					render={() => {
-						return <BrowsePage topStreams={this.state.topStreams} />;
+						return (
+							<BrowsePage
+								topStreams={this.state.topStreams}
+								setStreamName={this.setStreamName}
+							/>
+						);
 					}}
 				/>
 				<Route
@@ -55,7 +65,12 @@ class App extends Component {
 					render={() => {
 						return <SearchPage />;
 					}}
-					S
+				/>
+				<Route
+					path='/view'
+					render={() => {
+						return <ViewPage streamName={this.state.streamName} />;
+					}}
 				/>
 			</React.Fragment>
 		);
