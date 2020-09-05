@@ -24,10 +24,7 @@ function BrowsePage(props) {
 			<Container>
 				{topStreams.data.map((stream) => {
 					return (
-						<Card
-							border='secondary'
-							className='mb-4'
-							key={stream.id}>
+						<Card border='secondary' className='mb-4' key={stream.id}>
 							<Card.Img
 								variant='top'
 								src={stream.thumbnail_url.replace('-{width}x{height}', '')}
@@ -42,18 +39,20 @@ function BrowsePage(props) {
 								{background-color: #6441A4;
 								color: white;}`}
 							</style> */}
-							<ButtonGroup>
-								<Link to='/view'>
-									<Button
-										onClick={() => {props.setStreamName(
-											 stream.user_name
-										)}}
-										variant='outline-primary'>
-										Watch
-									</Button>
-								</Link>
-								<Button variant='outline-warning'>Follow</Button>
-							</ButtonGroup>
+
+							<Link style={{ textDecoration: 'none' }} to='/view'>
+								<Button
+									onClick={() => {
+										props.setStreamName(stream.user_name);
+									}}
+									variant='outline-primary'
+									block>
+									Watch
+								</Button>
+							</Link>
+							<Button variant='outline-warning' block>
+								Follow
+							</Button>
 						</Card>
 					);
 				})}
