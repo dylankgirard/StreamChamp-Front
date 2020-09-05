@@ -17,7 +17,7 @@ class App extends Component {
 		};
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		axios
 			.get('https://api.twitch.tv/helix/streams?first=10', {
 				headers: {
@@ -29,6 +29,7 @@ class App extends Component {
 				this.setState({
 					topStreams: res.data,
 				});
+				console.log(res.data);
 			});
 	}
 
@@ -40,7 +41,6 @@ class App extends Component {
 					exact
 					path='/'
 					render={() => {
-						
 						return <FrontPage topStreams={this.state.topStreams} />;
 					}}
 				/>
