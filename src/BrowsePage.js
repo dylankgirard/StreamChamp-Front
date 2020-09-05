@@ -12,21 +12,22 @@ function BrowsePage(props) {
 		<Container>
 			<h2>Browse</h2>
 			<Container>
-				<CardGroup>
-					<Card>
-						<Card.Img
-							variant='top'
-							src={topStreams.data[0].thumbnail_url.replace(
-								'-{width}x{height}', ''
-							)}
-						/>
-						<Card.Body>
-							<Card.Title>{topStreams.data[0].user_name}</Card.Title>
-							<Card.Text>{topStreams.data[0].title}}</Card.Text>
-						</Card.Body>
-						<Button>Watch</Button>
-					</Card>
-				</CardGroup>
+				{topStreams.data.map((stream) => {
+					return (
+						<Card border='dark' className='mb-3' key={stream.id}>
+							<Card.Img
+								variant='top'
+								src={stream.thumbnail_url.replace('-{width}x{height}', '')}
+							/>
+							<Card.Body>
+								<Card.Title>{stream.user_name}</Card.Title>
+								<Card.Text>{stream.title}}</Card.Text>
+								<Card.Text>Viewer Count: {stream.viewer_count}</Card.Text>
+							</Card.Body>
+							<Button>Watch</Button>
+						</Card>
+					);
+				})}
 			</Container>
 		</Container>
 	);
