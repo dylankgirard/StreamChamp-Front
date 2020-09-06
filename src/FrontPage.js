@@ -9,7 +9,9 @@ function FrontPage(props) {
 						<h2>Welcome to StreamChamp</h2>
 						<FrontCarousel topStreams={props.topStreams} />
 						<Link to='/browse'>
-							<Button className='mt-3'>Browse Top Streams</Button>
+							<Button variant='outline-warning' className='mt-3'>
+								Browse Top Streams
+							</Button>
 						</Link>
 					</Container>
 				);

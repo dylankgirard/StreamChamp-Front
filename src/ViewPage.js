@@ -1,24 +1,24 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container'
-import { TwitchEmbed } from 'react-twitch-embed';
-
+import Container from 'react-bootstrap/Container';
+import { TwitchEmbed, TwitchChat } from 'react-twitch-embed';
 
 function ViewPage(props) {
-    // console.log(props.streamName);
-    return (
-			<Container>
-				<h1>Now Viewing: {props.streamName}</h1>
-				<TwitchEmbed
-					id={props.streamName}
-					channel={`${props.streamName}`}
-					autoplay={false}
-					theme='dark'
-					width='100%'
-					muted
-					withChat={false}
-				/>
-			</Container>
-		);
+	// console.log(props.streamName);
+	return (
+		<Container>
+			<h1>Now Watching: {props.streamName}</h1>
+			<TwitchEmbed
+				id={props.streamName}
+				channel={`${props.streamName}`}
+				autoplay={false}
+				theme='dark'
+				width='100%'
+				muted
+				withChat={false}
+			/>
+			<TwitchChat channel={`${props.streamName}`} theme='dark' width='100%'/>
+		</Container>
+	);
 }
 
 export default ViewPage;
