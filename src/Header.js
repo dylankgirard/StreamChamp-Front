@@ -12,13 +12,16 @@ class Header extends Component {
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='basic-navbar-nav' />
 				<Navbar.Collapse id='basic-navbar-nav'>
-					<Container className="justify-content-end mr-0 pr-0">
+					<Container className='justify-content-end mr-0 pr-0'>
 						<Nav>
+							<Nav.Link id='brand' as={Link} to='/login'>
+								Log-In
+							</Nav.Link>
+							<Nav.Link id='brand' as={Link} to='/signup'>
+								Sign-Up
+							</Nav.Link>
 							<Nav.Link id='brand' as={Link} to='/browse'>
 								Browse
-							</Nav.Link>
-							<Nav.Link id='brand' as={Link} to='/search'>
-								Search
 							</Nav.Link>
 						</Nav>
 					</Container>

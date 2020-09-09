@@ -4,7 +4,8 @@ import Header from './Header';
 import FrontPage from './FrontPage';
 import ViewPage from './ViewPage'
 import BrowsePage from './BrowsePage';
-import SearchPage from './SearchPage';
+import LoginPage from './LoginPage';
+import SignUpPage from './SignUpPage'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import './App.css';
@@ -61,9 +62,15 @@ class App extends Component {
 					}}
 				/>
 				<Route
-					path='/search'
+					path='/login'
 					render={() => {
-						return <SearchPage />;
+						return <LoginPage />;
+					}}
+				/>
+				<Route
+					path='/signup'
+					render={() => {
+						return <SignUpPage />;
 					}}
 				/>
 				<Route
