@@ -10,14 +10,14 @@ function BrowsePage(props) {
 	// console.log(topStreams);
 	return (
 		<Container>
-			<h2>Browse</h2>
+			<h1>Browse Top Streams</h1>
 			<Container fluid='md' className='row m-0'>
 				{topStreams.data.map((stream) => {
 					return (
 						<Card
-							style={{ width: '50%' }}
+							// style={{ width: '50%' }}
 							border='secondary'
-							className='mb-2 mt-2'
+							className='mb-4'
 							key={stream.id}>
 							<Card.Img
 								variant='top'
@@ -25,7 +25,7 @@ function BrowsePage(props) {
 							/>
 							<Card.Body>
 								<Card.Title>{stream.user_name}</Card.Title>
-								<Card.Text>{stream.title}}</Card.Text>
+								<Card.Text>{stream.title}</Card.Text>
 								<Card.Text>Viewer Count: {stream.viewer_count}</Card.Text>
 							</Card.Body>
 							<Link style={{ textDecoration: 'none' }} to='/view'>
