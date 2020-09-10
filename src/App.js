@@ -15,7 +15,8 @@ class App extends Component {
 		super();
 		this.state = {
 			topStreams: [],
-			streamName: 'lirik'
+			streamName: 'lirik',
+			user:{}
 		};
 	}
 
@@ -37,6 +38,10 @@ class App extends Component {
 
 	setStreamName = (streamName) => {
 		this.setState({ streamName: streamName})
+	}
+
+	setUser = (user) => {
+		this.setState({ user: user})
 	}
 
 	render() {
@@ -64,7 +69,7 @@ class App extends Component {
 				<Route
 					path='/login'
 					render={() => {
-						return <LoginPage />;
+						return <LoginPage setUser={this.setUser}/>;
 					}}
 				/>
 				<Route
