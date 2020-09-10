@@ -12,3 +12,10 @@
 	font-family: 'ZealotOutline-rnMy';
 	font-size: 24px;
 }
+
+@media only screen and (min-width: 600px) {
+  #main-brand {
+	font-family: 'ZealotOutline-rnMy';
+	font-size: 38px;
+}
+}
