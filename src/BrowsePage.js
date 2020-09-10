@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Card, Button, ButtonGroup } from 'react-bootstrap';
+import { Container, Card, Button, CardColumns } from 'react-bootstrap';
 
 function BrowsePage(props) {
 	const topStreams = props.topStreams;
@@ -11,11 +11,10 @@ function BrowsePage(props) {
 	return (
 		<Container>
 			<h1>Browse Top Streams</h1>
-			<Container fluid='md' className='row m-0'>
+			<CardColumns>
 				{topStreams.data.map((stream) => {
 					return (
 						<Card
-							// style={{ width: '50%' }}
 							border='secondary'
 							className='mb-4'
 							key={stream.id}>
@@ -44,7 +43,7 @@ function BrowsePage(props) {
 						</Card>
 					);
 				})}
-			</Container>
+			</CardColumns>
 		</Container>
 	);
 }

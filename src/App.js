@@ -21,7 +21,7 @@ class App extends Component {
 
 	componentDidMount() {
 		axios
-			.get('https://api.twitch.tv/helix/streams?first=20', {
+			.get('https://api.twitch.tv/helix/streams?first=50', {
 				headers: {
 					'Client-Id': process.env.REACT_APP_TWITCH_API_CLIENT_ID,
 					Authorization: `Bearer ${process.env.REACT_APP_TWITCH_API_APP_TOKEN}`,

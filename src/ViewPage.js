@@ -5,7 +5,7 @@ import { TwitchEmbed, TwitchChat } from 'react-twitch-embed';
 function ViewPage(props) {
 	// console.log(props.streamName);
 	return (
-		<Container>
+		<Container className='pb-4'>
 			<h1>Now Watching: {props.streamName}</h1>
 			<TwitchEmbed
 				id={props.streamName}
@@ -16,7 +16,7 @@ function ViewPage(props) {
 				muted
 				withChat={false}
 			/>
-			<TwitchChat channel={`${props.streamName}`} theme='dark' width='100%'/>
+			<TwitchChat channel={`${props.streamName}`} theme='dark' width='100%' />
 		</Container>
 	);
 }
