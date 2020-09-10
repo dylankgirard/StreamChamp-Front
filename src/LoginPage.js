@@ -19,10 +19,18 @@ class LoginPage extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		axios
-			.get(`http://localhost:8000/users/${this.state.name}`)
+			.get(`http://localhost:8000/users/`)
 			.then((res) => {
 				this.props.setUser({
-					user: res.data,
+					user: res.data.filter((user) => {
+						if (user.name === this.state.name){
+						console.log(user);
+						return user
+						} else {
+							console.log('No user by that name');
+							return null
+						}
+					}),
 				});
 				console.log(res.data);
 			});

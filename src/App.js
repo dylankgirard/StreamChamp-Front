@@ -16,7 +16,7 @@ class App extends Component {
 		this.state = {
 			topStreams: [],
 			streamName: 'lirik',
-			user:{}
+			user: null
 		};
 	}
 
@@ -45,6 +45,7 @@ class App extends Component {
 	}
 
 	render() {
+		console.log(this.state.user);
 		return (
 			<React.Fragment>
 				<Header />
