@@ -7,6 +7,7 @@ import BrowsePage from './BrowsePage';
 import LoginPage from './LoginPage';
 import SignUpPage from './SignUpPage';
 import FavoritesPage from './FavoritesPage';
+import Profile from './Profile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import './App.css';
@@ -95,6 +96,16 @@ class App extends Component {
 							<FavoritesPage
 								user={this.state.user}
 								setStreamName={this.setStreamName}
+							/>
+						);
+					}}
+				/>
+				<Route
+					path='/profile'
+					render={() => {
+						return (
+							<Profile
+								user={this.state.user}
 							/>
 						);
 					}}

@@ -49,38 +49,49 @@ class FavoritesPage extends Component {
 		return (
 			<Container>
 				<h1>Browse Favorite Streams</h1>
+				{!this.props.user.user ? (
+					<Link style={{ textDecoration: 'none' }} to='/login'>
+						<Button
+							variant='outline-primary'
+							block>
+							Go To Login
+						</Button>
+					</Link>
+				) : (
+					''
+				)}
 				<CardColumns>
-				{this.state.favStreams.map((stream) => {
-					return (
-						<Card border='secondary' className='mb-4' key={stream.id}>
-							<Card.Img
-								variant='top'
-								src={stream.thumbnail_url.replace('-{width}x{height}', '')}
-							/>
-							<Card.Body>
-								<Card.Title>{stream.display_name}</Card.Title>
-								{stream.is_live ? (
-									<Card.Text>
-										<span className='red-span'>LIVE</span>
-									</Card.Text>
-								) : (
-									''
-								)}
-							</Card.Body>
-							<Link style={{ textDecoration: 'none' }} to='/view'>
-								<Button
-									onClick={() => {
-										this.props.setStreamName(stream.display_name);
-									}}
-									variant='outline-primary'
-									block>
-									Watch
-								</Button>
-							</Link>
-						</Card>
-					);
-				})}
-			</CardColumns>
+					{this.state.favStreams.map((stream) => {
+						return (
+							<Card border='secondary' className='mb-4' key={stream.id}>
+								<Card.Img
+									variant='top'
+									src={stream.thumbnail_url.replace('-{width}x{height}', '')}
+								/>
+								<Card.Body>
+									<Card.Title>{stream.display_name}</Card.Title>
+									{stream.is_live ? (
+										<Card.Text>
+											<span className='red-span'>LIVE</span>
+										</Card.Text>
+									) : (
+										''
+									)}
+								</Card.Body>
+								<Link style={{ textDecoration: 'none' }} to='/view'>
+									<Button
+										onClick={() => {
+											this.props.setStreamName(stream.display_name);
+										}}
+										variant='outline-primary'
+										block>
+										Watch
+									</Button>
+								</Link>
+							</Card>
+						);
+					})}
+				</CardColumns>
 			</Container>
 		);
 	}
