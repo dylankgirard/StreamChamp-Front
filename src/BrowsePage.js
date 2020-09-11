@@ -63,11 +63,12 @@ function BrowsePage(props) {
 								onClick={() => {
 									if (!user) {
 										console.log('Sign in to follow this stream');
+									} else if (user.favorites.includes(`${stream.user_name}`)) {
+										console.log('You already followed this stream!');
 									} else {
-									user.favorites.push(stream.user_name);
-									console.log(user);
-
-									handlePutRequest();
+										user.favorites.push(stream.user_name);
+										console.log(user);
+										handlePutRequest();
 									}
 								}}>
 								Follow
