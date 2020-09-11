@@ -39,7 +39,6 @@ class SignUpPage extends Component {
 	};
 
 	render() {
-		
 		return (
 			<Container>
 				<h1>Create an Account</h1>

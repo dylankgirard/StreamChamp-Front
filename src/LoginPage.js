@@ -16,16 +16,21 @@ class LoginPage extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		axios.get(`http://localhost:8000/users/`).then((res) => {
-			res.data.filter((user) => {
-				if (user.name === this.state.name) {
-					this.props.setUser({
-						user: user,
-					});
-				}
-				// console.log(res.data);
+		axios
+			.get(`http://localhost:8000/users/`)
+			.then((res) => {
+				res.data.filter((user) => {
+					if (user.name === this.state.name) {
+						this.props.setUser({
+							user: user,
+						});
+					}
+					// console.log(res.data);
+				});
+			})
+			.catch((err) => {
+				this.setState({ err: err });
 			});
-		});
 	};
 
 	render() {

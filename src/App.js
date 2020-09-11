@@ -46,7 +46,7 @@ class App extends Component {
 	}
 
 	render() {
-		// console.log(this.state.user);
+		console.log(this.state.user);
 		return (
 			<React.Fragment>
 				<Header user={this.state.user} />
@@ -62,8 +62,10 @@ class App extends Component {
 					render={() => {
 						return (
 							<BrowsePage
+								user={this.state.user}
 								topStreams={this.state.topStreams}
 								setStreamName={this.setStreamName}
+								setUser={this.setUser}
 							/>
 						);
 					}}

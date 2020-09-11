@@ -15,7 +15,7 @@ class FavoritesPage extends Component {
 	componentDidMount() {
 		// console.log(this.props.user);
 		if (!this.props.user.user) return;
-		let favs = this.props.user.user.favorites;
+		const favs = this.props.user.user.favorites;
 		for (let i = 0; i < favs.length; i++) {
 			axios
 				.get(
