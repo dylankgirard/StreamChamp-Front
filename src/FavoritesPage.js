@@ -13,7 +13,7 @@ class FavoritesPage extends Component {
 	}
 
 	componentDidMount() {
-		console.log(this.props.user);
+		// console.log(this.props.user);
 		if (!this.props.user.user) return;
 		let favs = this.props.user.user.favorites;
 		for (let i = 0; i < favs.length; i++) {
