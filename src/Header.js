@@ -14,13 +14,16 @@ function Header() {
 				<Container className='justify-content-end mr-0 pr-0'>
 					<Nav>
 						<Nav.Link id='brand' as={Link} to='/login'>
-							Log-In
+							Login
 						</Nav.Link>
 						<Nav.Link id='brand' as={Link} to='/signup'>
-							Sign-Up
+							Sign Up
 						</Nav.Link>
 						<Nav.Link id='brand' as={Link} to='/browse'>
 							Browse
+						</Nav.Link>
+						<Nav.Link id='brand' as={Link} to='/favorites'>
+							Favorites
 						</Nav.Link>
 					</Nav>
 				</Container>

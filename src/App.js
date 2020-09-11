@@ -5,7 +5,8 @@ import FrontPage from './FrontPage';
 import ViewPage from './ViewPage'
 import BrowsePage from './BrowsePage';
 import LoginPage from './LoginPage';
-import SignUpPage from './SignUpPage'
+import SignUpPage from './SignUpPage';
+import FavoritesPage from './FavoritesPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import './App.css';
@@ -32,7 +33,7 @@ class App extends Component {
 				this.setState({
 					topStreams: res.data,
 				});
-				console.log(res.data);
+				// console.log(res.data);
 			});
 	}
 
@@ -70,7 +71,7 @@ class App extends Component {
 				<Route
 					path='/login'
 					render={() => {
-						return <LoginPage setUser={this.setUser}/>;
+						return <LoginPage setUser={this.setUser} />;
 					}}
 				/>
 				<Route
@@ -83,6 +84,12 @@ class App extends Component {
 					path='/view'
 					render={() => {
 						return <ViewPage streamName={this.state.streamName} />;
+					}}
+				/>
+				<Route
+					path='/favorites'
+					render={() => {
+						return <FavoritesPage user={this.state.user} />;
 					}}
 				/>
 			</React.Fragment>
