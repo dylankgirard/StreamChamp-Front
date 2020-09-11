@@ -6,16 +6,15 @@ class FavoritesPage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			streams: [],
+			favStreams: [],
 		};
 	}
 
-	
 	render() {
         const user = this.props.user;
-				if (user === null) {
-					return null;
-				}
+				// if (user === null) {
+				// 	return true;
+				// }
 				console.log(user);
 		return (
 			<Container>
