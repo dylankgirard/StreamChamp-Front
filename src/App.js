@@ -17,7 +17,7 @@ class App extends Component {
 		this.state = {
 			topStreams: [],
 			streamName: 'lirik',
-			user: null
+			user: {}
 		};
 	}
 
@@ -89,7 +89,12 @@ class App extends Component {
 				<Route
 					path='/favorites'
 					render={() => {
-						return <FavoritesPage user={this.state.user} />;
+						return (
+							<FavoritesPage
+								user={this.state.user}
+								setStreamName={this.setStreamName}
+							/>
+						);
 					}}
 				/>
 			</React.Fragment>

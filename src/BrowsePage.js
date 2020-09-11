@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Card, Button, CardColumns } from 'react-bootstrap';
+import './BrowsePage.css'
 
 function BrowsePage(props) {
 	const topStreams = props.topStreams;
@@ -14,10 +15,7 @@ function BrowsePage(props) {
 			<CardColumns>
 				{topStreams.data.map((stream) => {
 					return (
-						<Card
-							border='secondary'
-							className='mb-4'
-							key={stream.id}>
+						<Card border='secondary' className='mb-4' key={stream.id}>
 							<Card.Img
 								variant='top'
 								src={stream.thumbnail_url.replace('-{width}x{height}', '')}
@@ -25,7 +23,9 @@ function BrowsePage(props) {
 							<Card.Body>
 								<Card.Title>{stream.user_name}</Card.Title>
 								<Card.Text>{stream.title}</Card.Text>
-								<Card.Text>Viewer Count: {stream.viewer_count}</Card.Text>
+								<Card.Text>
+									Viewer Count: <span className='red-span'>{stream.viewer_count}</span>
+								</Card.Text>
 							</Card.Body>
 							<Link style={{ textDecoration: 'none' }} to='/view'>
 								<Button
