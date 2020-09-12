@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import DeleteModal from './DeleteModal';
+import UpdateModal from './UpdateModal';
 
 class Profile extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			modalShow: false,
-			setModalShow: false,
+			name: '',
+			bio: '',
+			updateModalShow: false,
+			updateSetModalShow: false,
+			deleteModalShow: false,
+			deleteSetModalShow: false,
 		};
 	}
 
-	handleShowModal = () => {
-		this.setState({ modalShow: true, setModalShow: true });
-	}
+	handleNameChange = (e) => {
+		this.setState({ name: e.target.value });
+	};
+
+	handleBioChange = (e) => {
+		this.setState({ bio: e.target.value });
+	};
+
+	handleUpdateShowModal = () => {
+		this.setState({ updateModalShow: true, updateSetModalShow: true });
+	};
+
+	handleDeleteShowModal = () => {
+		this.setState({ deleteModalShow: true, deleteSetModalShow: true });
+	};
 
 	render() {
 		if (!this.props.user.user) return null;
@@ -25,16 +41,33 @@ class Profile extends Component {
 				<p>User Name: {user.name}</p>
 				<p>Bio: {user.bio}</p>
 				<p>Favorite Streams: {user.favorites.join(', ')}</p>
-				<Button variant='outline-primary'>Update Profile</Button>
-				<Button className='ml-2' variant='outline-danger' onClick={this.handleShowModal}>
+				<Button variant='outline-primary' onClick={this.handleUpdateShowModal}>
+					Update Profile
+				</Button>
+				<UpdateModal
+					user={this.props.user}
+					name={this.state.name}
+					bio={this.state.bio}
+					setUser={this.props.setUser}
+					handleNameChange={this.handleNameChange}
+					handleBioChange={this.handleBioChange}
+					show={this.state.updateModalShow}
+					onHide={() =>
+						this.setState({ updateSetModalShow: false, updateModalShow: false })
+					}
+				/>
+				<Button
+					className='ml-2'
+					variant='outline-danger'
+					onClick={this.handleDeleteShowModal}>
 					Delete Profile
 				</Button>
 				<DeleteModal
 					user={this.props.user}
 					setUser={this.props.setUser}
-					show={this.state.modalShow}
+					show={this.state.deleteModalShow}
 					onHide={() =>
-						this.setState({ setModalShow: false, modalShow: false })
+						this.setState({ deleteSetModalShow: false, deleteModalShow: false })
 					}
 				/>
 			</Container>
