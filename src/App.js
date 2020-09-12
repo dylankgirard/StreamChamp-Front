@@ -103,11 +103,7 @@ class App extends Component {
 				<Route
 					path='/profile'
 					render={() => {
-						return (
-							<Profile
-								user={this.state.user}
-							/>
-						);
+						return <Profile user={this.state.user} setUser={this.setUser} />;
 					}}
 				/>
 			</React.Fragment>
