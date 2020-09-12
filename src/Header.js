@@ -27,12 +27,20 @@ function Header(props) {
 						<Nav.Link id='brand' as={Link} to='/browse'>
 							Browse
 						</Nav.Link>
-						<Nav.Link id='brand' as={Link} to='/favorites'>
-							Favorites
-						</Nav.Link>
-						<Nav.Link id='brand' as={Link} to='/profile'>
-							Profile
-						</Nav.Link>
+						{props.user.user ? (
+							<Nav.Link id='brand' as={Link} to='/favorites'>
+								Favorites
+							</Nav.Link>
+						) : (
+							''
+						)}
+						{props.user.user ? (
+							<Nav.Link id='brand' as={Link} to='/profile'>
+								Profile
+							</Nav.Link>
+						) : (
+							''
+						)}
 					</Nav>
 				</Container>
 			</Navbar.Collapse>

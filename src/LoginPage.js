@@ -50,7 +50,7 @@ class LoginPage extends Component {
 						<Form.Label>Password</Form.Label>
 						<Form.Control type='password' placeholder='Password' />
 					</Form.Group> */}
-					<Button variant='primary' type='submit' onClick={this.handleSubmit}>
+					<Button variant='outline-primary' type='submit' onClick={this.handleSubmit}>
 						Submit
 					</Button>
 				</Form>

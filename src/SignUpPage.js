@@ -69,7 +69,7 @@ class SignUpPage extends Component {
 						<Form.Control type='password' placeholder='Password' />
 					</Form.Group> */}
 
-					<Button variant='primary' type='submit' onClick={this.handleSubmit}>
+					<Button variant='outline-primary' type='submit' onClick={this.handleSubmit}>
 						Submit
 					</Button>
 				</Form>
