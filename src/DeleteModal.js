@@ -7,12 +7,14 @@ function DeleteModal(props) {
 	const user = props.user.user;
 
 	const handleSubmit = () => {
-		axios.delete(`http://localhost:8000/users/${user.id}`).then((res) => {
-            console.log(res);
-            props.setUser({
-                user: null
-            })
-		});
+		axios
+			.delete(`https://stream-champ-back.herokuapp.com/${user.id}`)
+			.then((res) => {
+				console.log(res);
+				props.setUser({
+					user: null,
+				});
+			});
 	};
 	return (
 		<Modal show={props.show} onHide={props.onHide}>

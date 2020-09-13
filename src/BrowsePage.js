@@ -15,7 +15,7 @@ function BrowsePage(props) {
 
 	const handlePutRequest = () => {
 		axios
-			.put(`http://localhost:8000/users/${user.id}`, {
+			.put(`https://stream-champ-back.herokuapp.com/${user.id}`, {
 				name: user.name,
 				bio: user.bio,
 				favorites: user.favorites,

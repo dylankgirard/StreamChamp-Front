@@ -24,7 +24,7 @@ class SignUpPage extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		axios
-			.post(`http://localhost:8000/users/`, {
+			.post(`https://stream-champ-back.herokuapp.com/`, {
 				name: this.state.name,
 				bio: this.state.bio,
 			})
