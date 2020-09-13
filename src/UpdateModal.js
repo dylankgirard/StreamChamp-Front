@@ -8,7 +8,7 @@ function UpdateModal(props) {
 
 	const handleSubmit = () => {
 		axios
-			.put(`https://stream-champ-back.herokuapp.com/${user.id}`, {
+			.put(`https://stream-champ-back.herokuapp.com/users/${user.id}`, {
 				id: user.id,
 				name: props.name,
 				bio: props.bio,

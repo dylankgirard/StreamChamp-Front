@@ -17,7 +17,7 @@ class LoginPage extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		axios
-			.get(`https://stream-champ-back.herokuapp.com/`)
+			.get(`https://stream-champ-back.herokuapp.com/users/`)
 			.then((res) => {
 				res.data.filter((user) => {
 					if (user.name === this.state.name) {

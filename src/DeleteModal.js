@@ -8,7 +8,7 @@ function DeleteModal(props) {
 
 	const handleSubmit = () => {
 		axios
-			.delete(`https://stream-champ-back.herokuapp.com/${user.id}`)
+			.delete(`https://stream-champ-back.herokuapp.com/users/${user.id}`)
 			.then((res) => {
 				console.log(res);
 				props.setUser({
