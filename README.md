@@ -2,7 +2,7 @@
 
 ## Project Description
 
-Welcome to StreamChamp - a visual re-imagining of the popular Twitch.tv streaming platform. This application allows viewing of many top Twitch streamers, with full chat, follow, and subscription integration. Using OAuth2, users will be able to use their own Twitch account to view their favorite streamers and discover new streamers.
+Welcome to StreamChamp - a visual re-imagining of the popular Twitch.tv streaming platform. This application allows viewing of many top Twitch streamers, with full chat, follow, and subscription integration. Using our custom Django API back-end, users can follow and view their favorite streamers and discover new streamers.
 
 This application uses Twitch's API to collect user data, and is built using React/Bootstrap. The project has a high focus on visual design, responsiveness, and accessibility.
 
