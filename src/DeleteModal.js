@@ -23,12 +23,12 @@ function DeleteModal(props) {
 			</Modal.Header>
 			<Modal.Body>{user.name}</Modal.Body>
 			<Modal.Footer>
-				<Button variant='secondary' onClick={props.onHide}>
+				<Button variant='outline-secondary' onClick={props.onHide}>
 					Close
 				</Button>
 				<Link to='/'>
 					<Button
-						variant='danger'
+						variant='outline-danger'
 						onClick={() => {
 							props.onHide();
 							handleSubmit();

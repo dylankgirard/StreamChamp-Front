@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 import { Container, Form, Button } from 'react-bootstrap';
+import SignUpModal from './SignUpModal';
 import axios from 'axios';
-
 
 class SignUpPage extends Component {
 	constructor() {
@@ -10,6 +10,8 @@ class SignUpPage extends Component {
 		this.state = {
 			name: '',
 			bio: '',
+			signUpModalShow: false,
+			signUpSetModalShow: false,
 		};
 	}
 
@@ -21,6 +23,10 @@ class SignUpPage extends Component {
 		this.setState({ bio: e.target.value });
 	};
 
+	handleSignUpModalShow = () => {
+		this.setState({ signUpModalShow: true, signUpSetModalShow: true });
+	};
+
 	handleSubmit = (e) => {
 		e.preventDefault();
 		axios
@@ -30,12 +36,11 @@ class SignUpPage extends Component {
 			})
 			.then((res) => {
 				console.log(res);
+				this.handleSignUpModalShow();
 			})
 			.catch((err) => {
 				this.setState({ err: err });
 			});
-			
-		
 	};
 
 	render() {
@@ -69,10 +74,23 @@ class SignUpPage extends Component {
 						<Form.Control type='password' placeholder='Password' />
 					</Form.Group> */}
 
-					<Button variant='outline-primary' type='submit' onClick={this.handleSubmit}>
+					<Button
+						variant='outline-primary'
+						type='submit'
+						onClick={this.handleSubmit}>
 						Submit
 					</Button>
 				</Form>
+				<SignUpModal
+					name={this.state.name}
+					show={this.state.signUpModalShow}
+					onHide={() =>
+						this.setState({
+							signUpSetModalShow: false,
+							signUpModalShow: false,
+						})
+					}
+				/>
 			</Container>
 		);
 	}
