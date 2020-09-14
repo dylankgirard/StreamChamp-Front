@@ -12,6 +12,7 @@ class SignUpPage extends Component {
 			bio: '',
 			signUpModalShow: false,
 			signUpSetModalShow: false,
+			error: null,
 		};
 	}
 
@@ -27,6 +28,20 @@ class SignUpPage extends Component {
 		this.setState({ signUpModalShow: true, signUpSetModalShow: true });
 	};
 
+	handleSignUpModalHide = () => {
+		this.setState({
+			signUpModalShow: false,
+			signUpSetModalShow: false,
+			name: '',
+			bio: '',
+			error: null,
+		});
+	};
+
+	handleErrReset = () => {
+		this.setState({ error: false });
+	};
+
 	handleSubmit = (e) => {
 		e.preventDefault();
 		axios
@@ -36,10 +51,13 @@ class SignUpPage extends Component {
 			})
 			.then((res) => {
 				console.log(res);
+				
 				this.handleSignUpModalShow();
 			})
 			.catch((err) => {
-				this.setState({ err: err });
+				this.setState({ error: true });
+				console.log(err);
+				this.handleSignUpModalShow();
 			});
 	};
 
@@ -47,7 +65,7 @@ class SignUpPage extends Component {
 		return (
 			<Container>
 				<h1>Create an Account</h1>
-				<Form>
+				<Form type='submit'>
 					<Form.Group controlId='formBasicText'>
 						<Form.Label>User Name</Form.Label>
 						<Form.Control
@@ -77,6 +95,7 @@ class SignUpPage extends Component {
 					<Button
 						variant='outline-primary'
 						type='submit'
+						disabled={!this.state.name}
 						onClick={this.handleSubmit}>
 						Submit
 					</Button>
@@ -84,12 +103,9 @@ class SignUpPage extends Component {
 				<SignUpModal
 					name={this.state.name}
 					show={this.state.signUpModalShow}
-					onHide={() =>
-						this.setState({
-							signUpSetModalShow: false,
-							signUpModalShow: false,
-						})
-					}
+					error={this.state.error}
+					handleErrReset={this.handleErrReset}
+					onHide={this.handleSignUpModalHide}
 				/>
 			</Container>
 		);
