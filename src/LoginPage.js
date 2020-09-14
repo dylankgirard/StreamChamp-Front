@@ -91,16 +91,3 @@ class LoginPage extends Component {
 }
 
 export default LoginPage;
-
-// this.props.setUser({
-// 	user: res.data.filter((user) => {
-// 		if (user.name === this.state.name){
-// 		console.log(user);
-// 		return user
-// 		} else {
-// 			console.log('No user by that name');
-// 			return null
-// 		}
-// 	}),
-// });
-// console.log(res.data);
