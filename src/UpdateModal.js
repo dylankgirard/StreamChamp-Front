@@ -12,7 +12,6 @@ function UpdateModal(props) {
 				id: user.id,
 				name: props.name,
 				bio: props.bio,
-				favorites: user.favorites,
 			})
 			.then((res) => {
 				console.log(res);
@@ -25,6 +24,9 @@ function UpdateModal(props) {
 					},
 				});
 				console.log(props.user);
+			})
+			.catch((err) => {
+				console.log(err);
 			});
 	};
 	return (
@@ -57,7 +59,7 @@ function UpdateModal(props) {
 			</Modal.Body>
 			<Modal.Footer>
 				<Button
-					variant='secondary'
+					variant='outline-secondary'
 					onClick={() => {
 						props.onHide();
 					}}>
@@ -65,7 +67,7 @@ function UpdateModal(props) {
 				</Button>
 				<Link to='/profile'>
 					<Button
-						variant='warning'
+						variant='outline-warning'
 						type='submit'
 						onClick={() => {
 							props.onHide();
