@@ -51,7 +51,6 @@ class SignUpPage extends Component {
 			})
 			.then((res) => {
 				console.log(res);
-				
 				this.handleSignUpModalShow();
 			})
 			.catch((err) => {

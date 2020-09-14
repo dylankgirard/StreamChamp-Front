@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
+import LoginModal from './LoginModal';
 import axios from 'axios';
 
 class LoginPage extends Component {
@@ -7,8 +8,23 @@ class LoginPage extends Component {
 		super(props);
 		this.state = {
 			name: '',
+			isUser: false,
+			loginModalShow: false,
+			loginSetModalShow: false,
 		};
 	}
+
+	handleLoginModalShow = () => {
+		this.setState({ loginModalShow: true, loginSetModalShow: true });
+	};
+
+	handleLoginModalHide = () => {
+		this.setState({
+			loginModalShow: false,
+			loginSetModalShow: false,
+			isUser: false,
+		});
+	};
 
 	handleOnChange = (e) => {
 		this.setState({ name: e.target.value });
@@ -24,12 +40,16 @@ class LoginPage extends Component {
 						this.props.setUser({
 							user: user,
 						});
+						this.setState({ isUser: true });
+						this.handleLoginModalShow();
+					} else {
+						
+						this.handleLoginModalShow();
 					}
-					// console.log(res.data);
 				});
 			})
 			.catch((err) => {
-				this.setState({ err: err });
+				console.log(err);
 			});
 	};
 
@@ -37,7 +57,7 @@ class LoginPage extends Component {
 		return (
 			<Container>
 				<h1>Login To Your Account</h1>
-				<Form>
+				<Form type='submit'>
 					<Form.Group controlId='formBasicText'>
 						<Form.Label>User Name</Form.Label>
 						<Form.Control
@@ -50,10 +70,21 @@ class LoginPage extends Component {
 						<Form.Label>Password</Form.Label>
 						<Form.Control type='password' placeholder='Password' />
 					</Form.Group> */}
-					<Button variant='outline-primary' type='submit' onClick={this.handleSubmit}>
+					<Button
+						variant='outline-primary'
+						type='submit'
+						disabled={!this.state.name}
+						onClick={this.handleSubmit}>
 						Submit
 					</Button>
 				</Form>
+				<LoginModal
+					name={this.state.name}
+					// user={this.props.user}
+					isUser={this.state.isUser}
+					show={this.state.loginModalShow}
+					onHide={this.handleLoginModalHide}
+				/>
 			</Container>
 		);
 	}
@@ -62,14 +93,14 @@ class LoginPage extends Component {
 export default LoginPage;
 
 // this.props.setUser({
-				// 	user: res.data.filter((user) => {
-				// 		if (user.name === this.state.name){
-				// 		console.log(user);
-				// 		return user
-				// 		} else {
-				// 			console.log('No user by that name');
-				// 			return null
-				// 		}
-				// 	}),
-				// });
-				// console.log(res.data);
+// 	user: res.data.filter((user) => {
+// 		if (user.name === this.state.name){
+// 		console.log(user);
+// 		return user
+// 		} else {
+// 			console.log('No user by that name');
+// 			return null
+// 		}
+// 	}),
+// });
+// console.log(res.data);
