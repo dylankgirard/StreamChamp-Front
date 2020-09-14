@@ -10,7 +10,6 @@ function DeleteModal(props) {
 		axios
 			.delete(`https://stream-champ-back.herokuapp.com/users/${user.id}`)
 			.then((res) => {
-				console.log(res);
 				props.setUser({
 					user: null,
 				});

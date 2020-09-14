@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 import { Container, Form, Button } from 'react-bootstrap';
 import SignUpModal from './SignUpModal';
 import axios from 'axios';
@@ -50,7 +49,6 @@ class SignUpPage extends Component {
 				bio: this.state.bio,
 			})
 			.then((res) => {
-				console.log(res);
 				this.handleSignUpModalShow();
 			})
 			.catch((err) => {

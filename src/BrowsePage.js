@@ -42,8 +42,7 @@ class BrowsePage extends Component {
 				bio: user.bio,
 				favorites: user.favorites,
 			})
-			.then((res) => {
-				console.log(res);
+			.then(() => {
 			})
 			.catch((err) => {
 				console.log(err);
@@ -102,7 +101,6 @@ class BrowsePage extends Component {
 											this.handleFollowModalShow();
 										} else {
 											user.favorites.push(stream.user_name);
-											console.log(user);
 											this.handlePutRequest();
 											this.setState({
 												modalMessage: `You followed ${stream.user_name}`,
@@ -129,22 +127,3 @@ class BrowsePage extends Component {
 }
 
 export default BrowsePage;
-
-{
-	/* <Button
-	variant='outline-warning'
-	block
-	onClick={() => {
-		if (!user) {
-			console.log('Sign in to follow this stream');
-		} else if (user.favorites.includes(`${stream.user_name}`)) {
-			console.log('You already followed this stream!');
-		} else {
-			user.favorites.push(stream.user_name);
-			console.log(user);
-			this.handlePutRequest();
-		}
-	}}>
-	Follow
-</Button>; */
-}

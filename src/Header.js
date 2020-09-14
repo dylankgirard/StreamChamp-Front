@@ -5,7 +5,6 @@ import './Header.css';
 
 function Header(props) {
 	if (!props.user) return;
-	// console.log(props.user.user);
 	return (
 		<Navbar className='header' variant='dark' expand='lg' sticky='top'>
 			<Navbar.Brand id='main-brand' as={Link} to='/'>

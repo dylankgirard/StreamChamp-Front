@@ -13,7 +13,6 @@ class FavoritesPage extends Component {
 	}
 
 	componentDidMount() {
-		// console.log(this.props.user);
 		if (!this.props.user.user) return;
 		const favs = this.props.user.user.favorites;
 		for (let i = 0; i < favs.length; i++) {
@@ -31,7 +30,6 @@ class FavoritesPage extends Component {
 					this.setState({
 						favStreams: [...this.state.favStreams, res.data.data[0]],
 					});
-					// console.log(res.data);
 				})
 				.catch((err) => {
 					this.setState({ err: err });

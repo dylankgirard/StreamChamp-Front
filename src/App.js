@@ -34,7 +34,6 @@ class App extends Component {
 				this.setState({
 					topStreams: res.data,
 				});
-				// console.log(res.data);
 			});
 	}
 
@@ -47,7 +46,6 @@ class App extends Component {
 	}
 
 	render() {
-		console.log(this.state.user);
 		return (
 			<React.Fragment>
 				<Header user={this.state.user} setUser={this.setUser}/>

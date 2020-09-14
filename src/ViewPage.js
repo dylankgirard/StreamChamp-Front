@@ -5,7 +5,6 @@ import { TwitchEmbed, TwitchChat } from 'react-twitch-embed';
 import './ViewPage.css'
 
 function ViewPage(props) {
-	// console.log(props.streamName);
 	return (
 		<Container className='mt-2 pb-4'>
 			<h1 className='mb-3'>

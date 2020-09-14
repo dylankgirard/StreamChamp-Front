@@ -14,7 +14,6 @@ function UpdateModal(props) {
 				bio: props.bio,
 			})
 			.then((res) => {
-				console.log(res);
 				props.setUser({
 					user: {
 						id: user.id,
@@ -23,7 +22,6 @@ function UpdateModal(props) {
 						favorites: user.favorites,
 					},
 				});
-				console.log(props.user);
 			})
 			.catch((err) => {
 				console.log(err);

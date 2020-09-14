@@ -2,8 +2,6 @@ import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 
 function FollowModal(props) {
-	const name = props.name;
-	const user = props.user;
 	const streamerName = props.streamerName;
 
 	return (
