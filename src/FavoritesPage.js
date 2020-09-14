@@ -40,19 +40,19 @@ class FavoritesPage extends Component {
 	}
 
 	render() {
-		if (this.state.err) {
-			return <p>An error occured!</p>;
-		}
 
 		return (
 			<Container className='mt-2'>
 				<h1 className='mb-3'>Browse Favorite Streams</h1>
-				{!this.props.user.user ? (
-					<Link style={{ textDecoration: 'none' }} to='/login'>
-						<Button variant='outline-primary' block>
-							Go To Login
-						</Button>
-					</Link>
+				{this.state.favStreams.length === 0 ? (
+					<Container>
+						<h3>You're Not Following Anyone!</h3>
+						<Link style={{ textDecoration: 'none' }} to='/browse'>
+							<Button variant='outline-primary' block>
+								Go To Browse Page
+							</Button>
+						</Link>
+					</Container>
 				) : (
 					''
 				)}
