@@ -50,7 +50,7 @@ class App extends Component {
 		console.log(this.state.user);
 		return (
 			<React.Fragment>
-				<Header user={this.state.user} />
+				<Header user={this.state.user} setUser={this.setUser}/>
 				<Route
 					exact
 					path='/'

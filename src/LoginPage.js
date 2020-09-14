@@ -43,7 +43,6 @@ class LoginPage extends Component {
 						this.setState({ isUser: true });
 						this.handleLoginModalShow();
 					} else {
-						
 						this.handleLoginModalShow();
 					}
 				});

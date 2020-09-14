@@ -41,6 +41,17 @@ function Header(props) {
 						) : (
 							''
 						)}
+						{props.user.user ? (
+							<Nav.Link
+								id='brand'
+								as={Link}
+								to='/'
+								onClick={() => {props.setUser({ user: null })}}>
+								Logout
+							</Nav.Link>
+						) : (
+							''
+						)}
 					</Nav>
 				</Container>
 			</Navbar.Collapse>

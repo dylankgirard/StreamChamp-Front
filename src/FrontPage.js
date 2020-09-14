@@ -6,7 +6,7 @@ import FrontCarousel from './FrontCarousel';
 function FrontPage(props) {
 	return (
 		<Container>
-			<h1>Welcome to StreamChamp</h1>
+			<h1>Welcome To Stream-Champ</h1>
 			<FrontCarousel topStreams={props.topStreams} />
 			<Link to='/browse'>
 				<Button variant='outline-primary' className='mt-3'>
