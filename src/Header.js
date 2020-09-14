@@ -11,7 +11,7 @@ function Header(props) {
 			<Navbar.Brand id='main-brand' as={Link} to='/'>
 				Stream-Champ
 			</Navbar.Brand>
-			<Navbar.Brand className='justify-content-end'>
+			<Navbar.Brand id='login-brand' className='justify-content-end'>
 				{!props.user.user ? '' : `Welcome, ${props.user.user.name}`}
 			</Navbar.Brand>
 			<Navbar.Toggle aria-controls='basic-navbar-nav' />

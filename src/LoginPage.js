@@ -54,7 +54,7 @@ class LoginPage extends Component {
 
 	render() {
 		return (
-			<Container>
+			<Container className='mt-2'>
 				<h1>Login To Your Account</h1>
 				<Form type='submit'>
 					<Form.Group controlId='formBasicText'>

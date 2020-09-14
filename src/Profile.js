@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import DeleteModal from './DeleteModal';
 import UpdateModal from './UpdateModal';
+import './Profile.css'
 
 class Profile extends Component {
 	constructor(props) {
@@ -36,11 +37,18 @@ class Profile extends Component {
 		if (!this.props.user.user) return null;
 		const user = this.props.user.user;
 		return (
-			<Container>
-				<h1>Your Profile</h1>
-				<p>User Name: {user.name}</p>
-				<p>Bio: {user.bio}</p>
-				<p>Favorite Streams: {user.favorites.join(', ')}</p>
+			<Container className='mt-2'>
+				<h1 className='mb-2'>Your Profile</h1>
+				<p>
+					<span className='profile-item'>User Name:</span> {user.name}
+				</p>
+				<p>
+					<span className='profile-item'>Bio:</span> {user.bio}
+				</p>
+				<p>
+					<span className='profile-item'>Favorite Streams:</span>{' '}
+					{user.favorites.join(', ')}
+				</p>
 				<Button variant='outline-primary' onClick={this.handleUpdateShowModal}>
 					Update Profile
 				</Button>

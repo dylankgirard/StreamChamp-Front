@@ -2,12 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Button } from 'react-bootstrap';
 import { TwitchEmbed, TwitchChat } from 'react-twitch-embed';
+import './ViewPage.css'
 
 function ViewPage(props) {
 	// console.log(props.streamName);
 	return (
-		<Container className='pb-4'>
-			<h1>Now Watching: {props.streamName}</h1>
+		<Container className='mt-2 pb-4'>
+			<h1 className='mb-3'>
+				Now Watching: <span className='streamer'>{props.streamName}</span>
+			</h1>
 			<TwitchEmbed
 				id={props.streamName}
 				channel={`${props.streamName}`}

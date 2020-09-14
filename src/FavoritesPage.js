@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Card, Button, CardColumns } from 'react-bootstrap';
 import axios from 'axios';
-import './FavoritesPage.css'
+import './FavoritesPage.css';
 
 class FavoritesPage extends Component {
 	constructor(props) {
@@ -33,27 +33,23 @@ class FavoritesPage extends Component {
 					});
 					// console.log(res.data);
 				})
-				.catch(
-					err => {
-						this.setState({ err: err})
-					}
-				)
+				.catch((err) => {
+					this.setState({ err: err });
+				});
 		}
 	}
 
 	render() {
-		if (this.state.err){
-			return <p>An error occured!</p>
+		if (this.state.err) {
+			return <p>An error occured!</p>;
 		}
 
 		return (
-			<Container>
-				<h1>Browse Favorite Streams</h1>
+			<Container className='mt-2'>
+				<h1 className='mb-3'>Browse Favorite Streams</h1>
 				{!this.props.user.user ? (
 					<Link style={{ textDecoration: 'none' }} to='/login'>
-						<Button
-							variant='outline-primary'
-							block>
+						<Button variant='outline-primary' block>
 							Go To Login
 						</Button>
 					</Link>
@@ -63,13 +59,18 @@ class FavoritesPage extends Component {
 				<CardColumns>
 					{this.state.favStreams.map((stream) => {
 						return (
-							<Card border='secondary' className='mb-4' key={stream.id}>
+							<Card
+								id='card'
+								border='secondary'
+								className='mb-4'
+								key={stream.id}>
 								<Card.Img
+									id='image'
 									variant='top'
 									src={stream.thumbnail_url.replace('-{width}x{height}', '')}
 								/>
 								<Card.Body>
-									<Card.Title>{stream.display_name}</Card.Title>
+									<Card.Title id='card-title'>{stream.display_name}</Card.Title>
 									{stream.is_live ? (
 										<Card.Text>
 											<span className='red-span'>LIVE</span>
@@ -80,6 +81,7 @@ class FavoritesPage extends Component {
 								</Card.Body>
 								<Link style={{ textDecoration: 'none' }} to='/view'>
 									<Button
+										id='button'
 										onClick={() => {
 											this.props.setStreamName(stream.display_name);
 										}}

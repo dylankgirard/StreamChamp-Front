@@ -1,3 +1,16 @@
 .red-span {
-    color: red
+    color: red;
+    font-weight: bold;
+}
+
+#card {
+    border: 2px solid black;
+}
+
+#card-title {
+    font-size: 40px;
+}
+
+#button, #image {
+    border-radius: 0;
 }

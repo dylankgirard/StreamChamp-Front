@@ -56,18 +56,19 @@ class BrowsePage extends Component {
 		const user = this.props.user.user;
 		// console.log(user);
 		return (
-			<Container>
-				<h1>Browse Top Live Streams</h1>
+			<Container className='mt-2'>
+				<h1 className='mb-3'>Browse Top Live Streams</h1>
 				<CardColumns>
 					{topStreams.data.map((stream) => {
 						return (
-							<Card border='secondary' className='mb-4' key={stream.id}>
+							<Card className='mb-4' id='card' key={stream.id}>
 								<Card.Img
+									id='image'
 									variant='top'
 									src={stream.thumbnail_url.replace('-{width}x{height}', '')}
 								/>
 								<Card.Body>
-									<Card.Title>{stream.user_name}</Card.Title>
+									<Card.Title id='browse-card-title'>{stream.user_name}</Card.Title>
 									<Card.Text>{stream.title}</Card.Text>
 									<Card.Text>
 										Viewer Count:{' '}
@@ -76,6 +77,7 @@ class BrowsePage extends Component {
 								</Card.Body>
 								<Link style={{ textDecoration: 'none' }} to='/view'>
 									<Button
+										id='button'
 										onClick={() => {
 											this.props.setStreamName(stream.user_name);
 										}}
@@ -85,6 +87,7 @@ class BrowsePage extends Component {
 									</Button>
 								</Link>
 								<Button
+									id='button'
 									variant='outline-warning'
 									block
 									onClick={() => {

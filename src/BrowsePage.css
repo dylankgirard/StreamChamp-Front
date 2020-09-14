@@ -1,3 +1,15 @@
 .red-span {
     color: red
 }
+
+#card {
+    border: 2px solid black;
+}
+
+#browse-card-title {
+    font-size: 35px;
+}
+
+#button, #image {
+    border-radius: 0;
+}
