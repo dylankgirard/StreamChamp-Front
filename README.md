@@ -36,5 +36,5 @@ This application uses Twitch's API to collect user data, and is built using Reac
 
 - As a user, I would like to be able to perform a search for streamers or games that I hear about, so that I can explore new Twitch experiences.
 - As a user, I would like to be able to secure my information with password login, because I value my privacy.
-- As a user, I would love to be able to filter streamers with different viewership counts, because sometimes I like watching smaller streamers with less hectic chat rooms.
+- As a user, I would like to be able to filter streamers with different viewership counts, because sometimes I like watching smaller streamers with less hectic chat rooms.
 - As a user, I would like to have access to an about page with info featuring the creator of this app.
